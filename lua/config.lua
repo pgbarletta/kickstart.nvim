@@ -1,149 +1,149 @@
-require("catppuccin").setup({
-	flavour = "auto", -- latte, frappe, macchiato, mocha
-	background = { -- :h background
-		light = "latte",
-		dark = "frappe",
-	},
-	transparent_background = false, -- disables setting the background color.
-	show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
-	term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
-	dim_inactive = {
-		enabled = false, -- dims the background color of inactive window
-		shade = "dark",
-		percentage = 0.15, -- percentage of the shade to apply to the inactive window
-	},
-	no_italic = false, -- Force no italic
-	no_bold = false, -- Force no bold
-	no_underline = false, -- Force no underline
-	styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-		comments = { "italic" }, -- Change the style of comments
-		conditionals = { "italic" },
-		loops = {},
-		functions = {},
-		keywords = {},
-		strings = {},
-		variables = {},
-		numbers = {},
-		booleans = {},
-		properties = {},
-		types = {},
-		operators = {},
-		-- miscs = {}, -- Uncomment to turn off hard-coded styles
-	},
-	color_overrides = {},
-	custom_highlights = {},
-	default_integrations = true,
-	integrations = {
-		cmp = true,
-		gitsigns = true,
-		nvimtree = true,
-		treesitter = true,
-		notify = false,
-		mini = {
-			enabled = true,
-			indentscope_color = "",
-		},
-		-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
-	},
-})
+require('catppuccin').setup {
+  flavour = 'auto', -- latte, frappe, macchiato, mocha
+  background = { -- :h background
+    light = 'latte',
+    dark = 'frappe',
+  },
+  transparent_background = false, -- disables setting the background color.
+  show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
+  term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+  dim_inactive = {
+    enabled = false, -- dims the background color of inactive window
+    shade = 'dark',
+    percentage = 0.15, -- percentage of the shade to apply to the inactive window
+  },
+  no_italic = false, -- Force no italic
+  no_bold = false, -- Force no bold
+  no_underline = false, -- Force no underline
+  styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
+    comments = { 'italic' }, -- Change the style of comments
+    conditionals = { 'italic' },
+    loops = {},
+    functions = {},
+    keywords = {},
+    strings = {},
+    variables = {},
+    numbers = {},
+    booleans = {},
+    properties = {},
+    types = {},
+    operators = {},
+    -- miscs = {}, -- Uncomment to turn off hard-coded styles
+  },
+  color_overrides = {},
+  custom_highlights = {},
+  default_integrations = true,
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
+    notify = false,
+    mini = {
+      enabled = true,
+      indentscope_color = '',
+    },
+    -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+  },
+}
 
-vim.cmd.colorscheme("catppuccin-frappe")
+vim.cmd.colorscheme 'catppuccin-frappe'
 
-local cmp = require("cmp")
-cmp.setup({
-	mapping = cmp.mapping.preset.insert({
-		["<Tab>"] = cmp.mapping.confirm({ select = true }),
-	}),
-})
+local cmp = require 'cmp'
+cmp.setup {
+  mapping = cmp.mapping.preset.insert {
+    ['<Tab>'] = cmp.mapping.confirm { select = true },
+  },
+}
 
-local harpoon = require("harpoon")
+local harpoon = require 'harpoon'
 
 -- REQUIRED
 harpoon:setup()
 -- REQUIRED
 
-vim.keymap.set("n", "<leader>a", function()
-	harpoon:list():add()
+vim.keymap.set('n', '<leader>a', function()
+  harpoon:list():add()
 end)
-vim.keymap.set("n", "<C-e>", function()
-	harpoon.ui:toggle_quick_menu(harpoon:list())
+vim.keymap.set('n', '<C-e>', function()
+  harpoon.ui:toggle_quick_menu(harpoon:list())
 end)
 
-vim.keymap.set("n", "<C-h>", function()
-	harpoon:list():select(1)
+vim.keymap.set('n', '<C-h>', function()
+  harpoon:list():select(1)
 end)
-vim.keymap.set("n", "<C-t>", function()
-	harpoon:list():select(2)
+vim.keymap.set('n', '<C-t>', function()
+  harpoon:list():select(2)
 end)
-vim.keymap.set("n", "<C-n>", function()
-	harpoon:list():select(3)
+vim.keymap.set('n', '<C-n>', function()
+  harpoon:list():select(3)
 end)
-vim.keymap.set("n", "<C-s>", function()
-	harpoon:list():select(4)
+vim.keymap.set('n', '<C-s>', function()
+  harpoon:list():select(4)
 end)
 
 -- Toggle previous & next buffers stored within Harpoon list
-vim.keymap.set("n", "<C-S-P>", function()
-	harpoon:list():prev()
+vim.keymap.set('n', '<C-S-P>', function()
+  harpoon:list():prev()
 end)
-vim.keymap.set("n", "<C-S-N>", function()
-	harpoon:list():next()
+vim.keymap.set('n', '<C-S-N>', function()
+  harpoon:list():next()
 end)
 
-require("mini.surround").setup({
-	-- Add custom surroundings to be used on top of builtin ones. For more
-	-- information with examples, see `:h MiniSurround.config`.
-	custom_surroundings = nil,
+require('mini.surround').setup {
+  -- Add custom surroundings to be used on top of builtin ones. For more
+  -- information with examples, see `:h MiniSurround.config`.
+  custom_surroundings = nil,
 
-	-- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
-	highlight_duration = 500,
+  -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
+  highlight_duration = 500,
 
-	-- Module mappings. Use `''` (empty string) to disable one.
-	mappings = {
-		add = "sa", -- Add surrounding in Normal and Visual modes
-		delete = "sd", -- Delete surrounding
-		find = "sf", -- Find surrounding (to the right)
-		find_left = "sF", -- Find surrounding (to the left)
-		highlight = "sh", -- Highlight surrounding
-		replace = "sr", -- Replace surrounding
-		update_n_lines = "sn", -- Update `n_lines`
+  -- Module mappings. Use `''` (empty string) to disable one.
+  mappings = {
+    add = 'sa', -- Add surrounding in Normal and Visual modes
+    delete = 'sd', -- Delete surrounding
+    find = 'sf', -- Find surrounding (to the right)
+    find_left = 'sF', -- Find surrounding (to the left)
+    highlight = 'sh', -- Highlight surrounding
+    replace = 'sr', -- Replace surrounding
+    update_n_lines = 'sn', -- Update `n_lines`
 
-		suffix_last = "l", -- Suffix to search with "prev" method
-		suffix_next = "n", -- Suffix to search with "next" method
-	},
+    suffix_last = 'l', -- Suffix to search with "prev" method
+    suffix_next = 'n', -- Suffix to search with "next" method
+  },
 
-	-- Number of lines within which surrounding is searched
-	n_lines = 20,
+  -- Number of lines within which surrounding is searched
+  n_lines = 20,
 
-	-- Whether to respect selection type:
-	-- - Place surroundings on separate lines in linewise mode.
-	-- - Place surroundings on each line in blockwise mode.
-	respect_selection_type = false,
+  -- Whether to respect selection type:
+  -- - Place surroundings on separate lines in linewise mode.
+  -- - Place surroundings on each line in blockwise mode.
+  respect_selection_type = false,
 
-	-- How to search for surrounding (first inside current line, then inside
-	-- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
-	-- 'cover_or_nearest', 'next', 'prev', 'nearest'. For more details,
-	-- see `:h MiniSurround.config`.
-	search_method = "cover",
+  -- How to search for surrounding (first inside current line, then inside
+  -- neighborhood). One of 'cover', 'cover_or_next', 'cover_or_prev',
+  -- 'cover_or_nearest', 'next', 'prev', 'nearest'. For more details,
+  -- see `:h MiniSurround.config`.
+  search_method = 'cover',
 
-	-- Whether to disable showing non-error feedback
-	-- This also affects (purely informational) helper messages shown after
-	-- idle time if user input is required.
-	silent = false,
-})
+  -- Whether to disable showing non-error feedback
+  -- This also affects (purely informational) helper messages shown after
+  -- idle time if user input is required.
+  silent = false,
+}
 
-require("lspconfig").ruff.setup({})
-require("lspconfig").pyright.setup({
-	settings = {
-		pyright = {
-			-- Using Ruff's import organizer
-			disableOrganizeImports = true,
-		},
-		python = {
-			analysis = {
-				-- Ignore all files for analysis to exclusively use Ruff for linting
-				ignore = { "*" },
-			},
-		},
-	},
-})
+require('lspconfig').ruff.setup {}
+require('lspconfig').pyright.setup {
+  settings = {
+    pyright = {
+      -- Using Ruff's import organizer
+      disableOrganizeImports = true,
+    },
+    python = {
+      analysis = {
+        -- Ignore all files for analysis to exclusively use Ruff for linting
+        ignore = { '*' },
+      },
+    },
+  },
+}
