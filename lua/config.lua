@@ -148,7 +148,6 @@ require('lspconfig').pyright.setup {
   },
 }
 
-<<<<<<< Updated upstream
 require('neoscroll').setup {
   mappings = { -- Keys to be mapped to their corresponding default scrolling animation
     '<C-u>',
@@ -176,9 +175,6 @@ require('neoscroll').setup {
   },
 }
 
-vim.opt['tabstop'] = 4
-vim.opt['shiftwidth'] = 4
-=======
 require('refactoring').setup {
   prompt_func_return_type = {
     go = false,
@@ -208,4 +204,3 @@ require('refactoring').setup {
 
 vim.opt['tabstop'] = 2
 vim.opt['shiftwidth'] = 2
->>>>>>> Stashed changes
