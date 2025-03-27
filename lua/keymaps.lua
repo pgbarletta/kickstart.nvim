@@ -71,7 +71,7 @@ vim.keymap.set('n', '<leader>bs', ':SaveQuitBuffer<CR>')
 
 -- Lua function to quit the current buffer
 function Quit_buffer()
-  vim.cmd 'bd'
+  vim.cmd 'bd!'
 end
 
 -- Create a user command (optional, but good practice)
