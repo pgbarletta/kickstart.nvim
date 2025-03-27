@@ -910,3 +910,4 @@ require('lazy').setup({
 require 'keymaps'
 require 'config'
 require 'custom.configs.trouble'
+require 'custom.configs.spectre'
