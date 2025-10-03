@@ -95,4 +95,33 @@ vim.api.nvim_create_user_command('ReloadBuffer', 'lua Reload_buffer()', {
 -- Set the key mapping
 vim.keymap.set('n', '<leader>ee', ':ReloadBuffer<CR>')
 
+-- ------------------[ DAP Debugging Keymaps ]------------------ 🐛
+vim.keymap.set('n', '<F5>', function()
+  require('dap').continue()
+end, { desc = 'DAP: Continue' })
+vim.keymap.set('n', '<F10>', function()
+  require('dap').step_over()
+end, { desc = 'DAP: Step Over' })
+vim.keymap.set('n', '<F11>', function()
+  require('dap').step_into()
+end, { desc = 'DAP: Step Into' })
+vim.keymap.set('n', '<F12>', function()
+  require('dap').step_out()
+end, { desc = 'DAP: Step Out' })
+vim.keymap.set('n', '<leader>b', function()
+  require('dap').toggle_breakpoint()
+end, { desc = 'DAP: Toggle Breakpoint' })
+vim.keymap.set('n', '<leader>B', function()
+  require('dap').set_breakpoint(nil, nil, vim.fn.input 'Log point message: ')
+end, { desc = 'DAP: Set Logpoint' })
+vim.keymap.set('n', '<leader>dr', function()
+  require('dap').repl.open()
+end, { desc = 'DAP: Open REPL' })
+vim.keymap.set('n', '<leader>dl', function()
+  require('dap').run_last()
+end, { desc = 'DAP: Run Last' })
+vim.keymap.set('n', '<leader>dt', function()
+  require('dapui').toggle()
+end, { desc = 'DAP: Toggle UI' })
+
 return M

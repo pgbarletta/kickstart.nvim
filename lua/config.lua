@@ -133,8 +133,9 @@ require('mini.surround').setup {
   silent = false,
 }
 
-require('lspconfig').ruff.setup {}
-require('lspconfig').pyright.setup {
+-- vim.lsp.config.ruff.setup {}
+vim.lsp.enable 'ruff'
+vim.lsp.enable('pyright', {
   settings = {
     pyright = {
       -- Using Ruff's import organizer
@@ -147,7 +148,7 @@ require('lspconfig').pyright.setup {
       },
     },
   },
-}
+})
 
 require('neoscroll').setup {
   mappings = { -- Keys to be mapped to their corresponding default scrolling animation
