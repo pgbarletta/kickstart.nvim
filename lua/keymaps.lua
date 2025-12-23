@@ -124,4 +124,12 @@ vim.keymap.set('n', '<leader>dt', function()
   require('dapui').toggle()
 end, { desc = 'DAP: Toggle UI' })
 
+--nrformat sirve p/ poder sumar y restar letras con Ctrl+a & Ctrl+x
+local nr = require 'custom.configs.nrformats'
+
+vim.keymap.set('n', '<leader>na', nr.toggle_alpha_nrformat, {
+  desc = 'Toggle alpha nrformat (<C-a>/<C-x> on letters)',
+})
+--
+
 return M
