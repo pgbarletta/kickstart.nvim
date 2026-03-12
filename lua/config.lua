@@ -134,20 +134,11 @@ require('mini.surround').setup {
 }
 
 -- vim.lsp.config.ruff.setup {}
-vim.lsp.enable 'ruff'
-vim.lsp.enable('pyright', {
-  settings = {
-    pyright = {
-      -- Using Ruff's import organizer
-      disableOrganizeImports = true,
-    },
-    python = {
-      analysis = {
-        -- Ignore all files for analysis to exclusively use Ruff for linting
-        ignore = { '*' },
-      },
-    },
-  },
+local ruff_capabilities = vim.lsp.protocol.make_client_capabilities()
+ruff_capabilities.general = ruff_capabilities.general or {}
+ruff_capabilities.general.positionEncodings = { 'utf-8' }
+vim.lsp.enable('ruff', {
+  capabilities = ruff_capabilities,
 })
 
 require('neoscroll').setup {
