@@ -36,5 +36,9 @@ return {
       rst = {},
       ['_'] = { 'trim_whitespace' },
     },
+    formatters = {
+      ruff_fix = { args = { '--fix', '--line-length=100', '--exit-zero', '--no-cache', '-' } },
+      ruff_format = { args = { 'format', '--line-length=100', '--no-cache', '-' } },
+    },
   },
 }
