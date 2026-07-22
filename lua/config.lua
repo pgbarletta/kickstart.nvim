@@ -47,8 +47,8 @@ require('catppuccin').setup {
   },
 }
 
--- vim.cmd.colorscheme 'catppuccin-latte'
-vim.cmd.colorscheme 'catppuccin-frappe'
+vim.cmd.colorscheme 'catppuccin-latte'
+-- vim.cmd.colorscheme 'catppuccin-frappe'
 
 local cmp = require 'cmp'
 cmp.setup {
