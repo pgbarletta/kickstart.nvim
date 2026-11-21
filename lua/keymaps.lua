@@ -1,5 +1,11 @@
 local M = {}
 
+-- Copy the last yank or the visual selection to the system clipboard.
+vim.keymap.set('n', '<leader>y', function()
+  vim.fn.setreg('+', vim.fn.getreg('0', 1, true), vim.fn.getregtype('0'))
+end, { desc = 'Copy last yank to system clipboard' })
+vim.keymap.set('x', '<leader>y', '"+y', { desc = 'Copy selection to system clipboard' })
+
 function M.toggle_colorscheme()
   local current_colorscheme = vim.g.colors_name -- Get the current colorscheme
 
